@@ -43,5 +43,5 @@
     "coffee-script": "1.9.2",
     "gulp": "3.9.0",
     "gulp-release-it": "1.0.10"
-  },
+  }
 }
