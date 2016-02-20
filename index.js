@@ -36,8 +36,6 @@ function templateCache(options) {
         contents = htmlJsStr(contents);
         contents = contents.replace(openTag, '$1 igat=\\"' + (id++) + '\\"');
 
-        console.log('contents', contents);
-
         file.contents = new Buffer(gutil.template(template, {
             url: url,
             contents: contents,
