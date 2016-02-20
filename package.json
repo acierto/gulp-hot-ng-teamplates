@@ -1,6 +1,6 @@
 {
   "name": "gulp-hot-ng-templates",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Build all of your angular templates in just one js file using $templateCache provider for hot reloading",
   "main": "index.js",
   "scripts": {
