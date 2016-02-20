@@ -7,8 +7,6 @@ var header = require('gulp-header');
 var footer = require('gulp-footer');
 var htmlJsStr = require('js-string-escape');
 
-var id = 0;
-
 function templateCache(options) {
     return es.map(function (file, callback) {
         var template = '$templateCache.put("<%= url %>","<%= contents %>");';
@@ -34,7 +32,7 @@ function templateCache(options) {
          * HTML to JavaScript
          */
         contents = htmlJsStr(contents);
-        contents = contents.replace(openTag, '$1 igat=\\"' + (id++) + '\\"');
+        contents = contents.replace(openTag, '$1 igat=\\"' + (options.id++) + '\\"');
 
         file.contents = new Buffer(gutil.template(template, {
             url: url,
@@ -52,7 +50,8 @@ module.exports = function (options, filename) {
         module: 'templates',
         filename: 'templates.min.js',
         header: 'angular.module("<%= module %>"<%= standalone %>).run(["$templateCache", function($templateCache) {',
-        footer: '}]);'
+        footer: '}]);',
+        id: 0
     };
 
     if (_.isUndefined(options)) {
